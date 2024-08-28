@@ -1,15 +1,17 @@
 # Tech Test - Plentific
 
-**Consider how you will communicate API errors to other developers using this package.**
+### Handling API Errors:
 
-**How will you make a generic exception thrown by an API/third party package more specific to your domain**
+To effectively communicate API errors to developers using this package, I’ve wrapped all API calls within try-catch blocks. I have created a custom ApiException that is thrown when an error occurs. This exception provides a clear, domain-specific error message that developers can catch and handle appropriately in their own applications.
 
-When reviewing the code you will see all calls are within a try catch block. I have generated an Exception "ApiException" for this domain, which gives my error message explaining the fail. This can be caught by the developer using the package and handled further.
+### Customizing API Exceptions:
 
-**How can you make this code testable?**
-Unit tests are to test the code not the third party. Unit tests should also test both happy and sad paths, to ensure they are fault tolerant. As you can see with my unit tests I havce included some example tests for failure.
+When an API or third-party package throws a generic exception, it can be challenging to understand the specific context or cause within the domain. To address this, I’ve introduced the ApiException class, which translates these generic errors into more meaningful, domain-specific exceptions. This approach ensures that the errors are easier to debug and handle.
 
-**Do not re-invent the wheel**
-I have used guzzle to aid in the handling of requests and PHP Unit for unit testing. The unit testing of course is set to require-dev so it is not included in production.
+### Making the Code Testable:
 
+To make the code testable, I've ensured that unit tests focus solely on the package's logic rather than the behavior of third-party services. This is achieved by mocking external API calls in the tests. The unit tests cover both successful (happy paths) and unsuccessful (sad paths) scenarios, ensuring the code is robust and fault-tolerant. For example, I've included tests that simulate API failures to verify that the package correctly handles these situations.
 
+### Leveraging Established Tools:
+
+Rather than reinventing the wheel, I have utilized Guzzle for handling HTTP requests and PHPUnit for unit testing. PHPUnit is included as a require-dev dependency, ensuring that its only used in the development environment and not included in production.
