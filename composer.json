@@ -1,0 +1,23 @@
+{
+    "name": "kevinrevill/plentific",
+    "version": "1.0.0",
+    "description": "Package to handle integration of https://reqres.in",
+    "autoload": {
+        "psr-4": {
+            "Kevinrevill\\Plentific\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kevin Revill",
+            "email": "k.revill1972@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.9",
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.3"
+    }
+}
